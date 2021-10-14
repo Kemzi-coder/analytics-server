@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const userSchema = new Schema({
 	uuid: {
@@ -43,8 +43,8 @@ const userSchema = new Schema({
 	mdate: {
 		type: Number
 	}
-}, {versionKey: false});
+}, {versionKey: false})
 
-const User = new mongoose.model('User', userSchema);
+const User = new mongoose.model('User', userSchema)
 
-export default User;
+export default User
