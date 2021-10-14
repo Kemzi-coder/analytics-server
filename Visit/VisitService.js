@@ -1,48 +1,59 @@
 import Visit from './Visit.js'
 
 class VisitService {
-    async create(visit) {
-        const createdVisit = await Visit.create(visit)
-        return createdVisit
-    }
+	async create(visit) {
+		const createdVisit = await Visit.create(visit)
+		return createdVisit
+	}
 
-    async getAll() {
-        const sortedVisits = await Visit.find().sort({mdate: -1})
-        return sortedVisits
-    }
+	async getAll() {
+		const sortedVisits = await Visit.find().sort({mdate: -1})
+		return sortedVisits
+	}
 
-    async get(id) {
-        if (!id) {
-            throw new Error('Id is undefined')
-        }
+	async get(id) {
+		if (!id) {
+			throw new Error('Id is undefined')
+		}
 
-        const sortedVisits = await Visit.find({uuid: id}).sort({mdate: -1})
-        return sortedVisits
-    }
+		const sortedVisits = await Visit.find({uuid: id})
+			.sort({mdate: -1})
 
-    async update(visit) {
-        if (!visit.uuid) {
-            throw new Error('Id is undefined')
-        }
+		return sortedVisits
+	}
 
-        const sortedVisit = await Visit.find({uuid: visit.uuid}).sort({mdate: -1}).limit(1)
-        const updatedVisit = await Visit.findOneAndUpdate({uuid: sortedVisit[0].uuid, mdate: sortedVisit[0].mdate}, visit)
+	async update(visit) {
+		if (!visit.uuid) {
+			throw new Error('Id is undefined')
+		}
 
-        return updatedVisit
-    }
+		const sortedVisit = await Visit.find({uuid: visit.uuid})
+			.sort({mdate: -1})
+			.limit(1)
 
-    async delete(id) {
-        if (!id) {
-            throw new Error('Id is undefined')
-        }
+		const updatedVisit = await Visit.findOneAndUpdate({
+			uuid: sortedVisit[0].uuid,
+			mdate: sortedVisit[0].mdate
+		}, visit)
 
-        const sortedVisit = await Visit.find({uuid: id}).sort({mdate: -1}).limit(1)
-        await Visit.deleteOne(
-            {uuid: sortedVisit[0].uuid, mdate: sortedVisit[0].mdate}
-        )
+		return updatedVisit
+	}
 
-        return sortedVisit[0]
-    }
+	async delete(id) {
+		if (!id) {
+			throw new Error('Id is undefined')
+		}
+
+		const sortedVisit = await Visit.find({uuid: id})
+			.sort({mdate: -1})
+			.limit(1)
+
+		await Visit.deleteOne(
+			{uuid: sortedVisit[0].uuid, mdate: sortedVisit[0].mdate}
+		)
+
+		return sortedVisit[0]
+	}
 }
 
 export default new VisitService()

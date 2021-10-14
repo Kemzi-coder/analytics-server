@@ -3,20 +3,20 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const visitSchema = new Schema({
-    uuid: {
-        type: String
-    },
-    url: {
-        type: String
-    },
-    date: {
-        type: String
-    },
-    mdate: {
-        type: Number
-    }
+	uuid: {
+		type: String
+	},
+	url: {
+		type: String
+	},
+	date: {
+		type: String
+	},
+	mdate: {
+		type: Number
+	}
 }, {versionKey: false})
 
-const Visit = new mongoose.model('Visit', visitSchema)
+const Visit = mongoose.model('Visit', visitSchema)
 
 export default Visit

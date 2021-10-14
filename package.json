@@ -17,6 +17,8 @@
     "nanoid": "^3.1.29"
   },
   "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-google": "^0.14.0",
     "nodemon": "^2.0.13"
   }
 }
