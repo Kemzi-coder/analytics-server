@@ -1,0 +1,22 @@
+{
+  "name": "analytics-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "type": "module",
+  "author": "kemziCode <kemzi9585@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.8",
+    "nanoid": "^3.1.29"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}

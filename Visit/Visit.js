@@ -1,0 +1,22 @@
+import mongoose from 'mongoose';
+
+const Schema = mongoose.Schema;
+
+const visitSchema = new Schema({
+    uuid: {
+        type: String
+    },
+    url: {
+        type: String
+    },
+    date: {
+        type: String
+    },
+    mdate: {
+        type: Number
+    }
+}, {versionKey: false});
+
+const Visit = new mongoose.model('Visit', visitSchema);
+
+export default Visit;
