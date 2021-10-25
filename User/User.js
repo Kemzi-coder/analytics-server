@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({
 	uuid: {
 		type: String,
-		unique: true
+		unique: true,
+		required: true
 	},
 	user_agent: {
 		type: String

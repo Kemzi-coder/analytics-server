@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 
 const visitSchema = new Schema({
 	uuid: {
-		type: String
+		type: String,
+		required: true
 	},
 	url: {
 		type: String
