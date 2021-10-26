@@ -1,1 +1,1 @@
-export const mongoURI = '<mongo_uri>'
+export const mongoURI = 'mongo_uri'

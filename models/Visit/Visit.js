@@ -2,21 +2,24 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const visitSchema = new Schema({
-	uuid: {
-		type: String,
-		required: true
+const visitSchema = new Schema(
+	{
+		uuid: {
+			type: String,
+			required: true
+		},
+		url: {
+			type: String
+		},
+		date: {
+			type: String
+		},
+		mdate: {
+			type: Number
+		}
 	},
-	url: {
-		type: String
-	},
-	date: {
-		type: String
-	},
-	mdate: {
-		type: Number
-	}
-}, {versionKey: false})
+	{versionKey: false}
+)
 
 const Visit = mongoose.model('Visit', visitSchema)
 

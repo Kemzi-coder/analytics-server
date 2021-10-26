@@ -16,8 +16,7 @@ class VisitService {
 			throw new Error('Id is undefined')
 		}
 
-		const sortedVisits = await Visit.find({uuid: id})
-			.sort({mdate: -1})
+		const sortedVisits = await Visit.find({uuid: id}).sort({mdate: -1})
 
 		return sortedVisits
 	}
@@ -31,10 +30,13 @@ class VisitService {
 			.sort({mdate: -1})
 			.limit(1)
 
-		const updatedVisit = await Visit.findOneAndUpdate({
-			uuid: sortedVisit[0].uuid,
-			mdate: sortedVisit[0].mdate
-		}, visit)
+		const updatedVisit = await Visit.findOneAndUpdate(
+			{
+				uuid: sortedVisit[0].uuid,
+				mdate: sortedVisit[0].mdate
+			},
+			visit
+		)
 
 		return updatedVisit
 	}
@@ -48,9 +50,10 @@ class VisitService {
 			.sort({mdate: -1})
 			.limit(1)
 
-		await Visit.deleteOne(
-			{uuid: sortedVisit[0].uuid, mdate: sortedVisit[0].mdate}
-		)
+		await Visit.deleteOne({
+			uuid: sortedVisit[0].uuid,
+			mdate: sortedVisit[0].mdate
+		})
 
 		return sortedVisit[0]
 	}

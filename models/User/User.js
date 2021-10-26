@@ -2,49 +2,52 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
-	uuid: {
-		type: String,
-		unique: true,
-		required: true
+const userSchema = new Schema(
+	{
+		uuid: {
+			type: String,
+			unique: true,
+			required: true
+		},
+		user_agent: {
+			type: String
+		},
+		screen: {
+			type: String
+		},
+		os_name: {
+			type: String
+		},
+		os_version: {
+			type: String
+		},
+		browser_name: {
+			type: String
+		},
+		browser_version: {
+			type: String
+		},
+		cpu: {
+			type: String
+		},
+		engine: {
+			type: String
+		},
+		device: {
+			type: String
+		},
+		languages: {
+			type: String
+		},
+		date: {
+			type: String
+		},
+		mdate: {
+			type: Number
+		}
 	},
-	user_agent: {
-		type: String
-	},
-	screen: {
-		type: String
-	},
-	os_name: {
-		type: String
-	},
-	os_version: {
-		type: String
-	},
-	browser_name: {
-		type: String
-	},
-	browser_version: {
-		type: String
-	},
-	cpu: {
-		type: String
-	},
-	engine: {
-		type: String
-	},
-	device: {
-		type: String
-	},
-	languages: {
-		type: String
-	},
-	date: {
-		type: String
-	},
-	mdate: {
-		type: Number
-	}
-}, {versionKey: false})
+	{versionKey: false}
+)
 
 const User = mongoose.model('User', userSchema)
 
