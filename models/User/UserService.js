@@ -4,6 +4,9 @@ class UserService {
 	async create(user) {
 		const candidate = await User.findOne({uuid: user.uuid})
 		if (candidate) {
+			if (user.ip !== candidate.ip) {
+				await User.updateOne({uuid: user.uuid}, {ip: user.ip})
+			}
 			return
 		}
 		const createdUser = await User.create(user)
