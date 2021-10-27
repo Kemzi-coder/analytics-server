@@ -1,14 +1,14 @@
-import {parseIp} from '../../utils.js'
+import {generateLocation, parseIp} from '../../utils.js'
 import UserService from './UserService.js'
 import fetch from 'node-fetch'
 class UserController {
 	async create(req, res) {
 		try {
 			const ip = parseIp(req)
-			const locationApiResponse = await (await fetch(`https://ipapi.co/${ip}/json/`)).json()
+			const locationApiRes = await (await fetch(`https://ipapi.co/${ip}/json/`)).json()
+			const location = generateLocation(locationApiRes)
 
-			console.log(locationApiResponse)
-			const user = await UserService.create({...req.body, ip})
+			const user = await UserService.create({...req.body, ip, location})
 			res.json(user)
 		} catch (e) {
 			res.status(500).json(e)
