@@ -5,7 +5,8 @@ class UserService {
 		const candidate = await User.findOne({uuid: user.uuid})
 		if (candidate) {
 			if (user.ip !== candidate.ip) {
-				await User.updateOne({uuid: user.uuid}, {ip: user.ip})
+				await User.updateOne({uuid: user.uuid},
+					{ip: user.ip, location: user.location})
 			}
 			return
 		}
