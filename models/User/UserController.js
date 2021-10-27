@@ -7,7 +7,7 @@ class UserController {
 			const ip = parseIp(req)
 			const locationApiRes = await (await fetch(`https://ipapi.co/${ip}/json/`)).json()
 			const location = generateLocation(locationApiRes)
-			console.log(location)
+
 			const user = await UserService.create({...req.body, ip, location})
 			res.json(user)
 		} catch (e) {
