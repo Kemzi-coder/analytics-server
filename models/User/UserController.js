@@ -1,10 +1,13 @@
 import {parseIp} from '../../utils.js'
 import UserService from './UserService.js'
+import fetch from 'node-fetch'
 class UserController {
 	async create(req, res) {
 		try {
 			const ip = parseIp(req)
-			console.log(`http://ip-api.com/json/${ip}`)
+			const location = await fetch(`http://ip-api.com/json/${ip}`)
+
+			console.log(await location.json())
 			const user = await UserService.create({...req.body, ip})
 			res.json(user)
 		} catch (e) {
