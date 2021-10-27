@@ -9,7 +9,7 @@ const visitSchema = new Schema(
 			required: true
 		},
 		ip: {
-			type: Number
+			type: String
 		},
 		url: {
 			type: String
