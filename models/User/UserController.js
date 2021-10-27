@@ -3,6 +3,8 @@ import UserService from './UserService.js'
 class UserController {
 	async create(req, res) {
 		try {
+			const ip = req.headers['x-forwarded-for'] || req.ip || null
+			console.log(ip, req.headers)
 			const user = await UserService.create(req.body)
 			res.json(user)
 		} catch (e) {
