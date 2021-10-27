@@ -12,6 +12,9 @@ const userSchema = new Schema(
 		ip: {
 			type: String
 		},
+		location: {
+			type: String
+		},
 		user_agent: {
 			type: String
 		},

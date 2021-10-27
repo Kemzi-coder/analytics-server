@@ -5,9 +5,9 @@ class UserController {
 	async create(req, res) {
 		try {
 			const ip = parseIp(req)
-			const location = await fetch(`http://ip-api.com/json/${ip}`)
+			const locationApiResponse = (await fetch(`https://ipapi.co/${ip}/json/`)).json()
 
-			console.log(await location.json())
+			console.log(locationApiResponse)
 			const user = await UserService.create({...req.body, ip})
 			res.json(user)
 		} catch (e) {
