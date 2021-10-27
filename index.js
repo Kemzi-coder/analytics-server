@@ -18,7 +18,7 @@ app.use(express.json())
 
 app.use('/api', router)
 
-async function startApp() {
+const startApp = async () => {
 	try {
 		await mongoose.connect(mongoURI)
 		app.listen(PORT, () => {

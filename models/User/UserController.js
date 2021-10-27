@@ -1,11 +1,11 @@
+import {parseIp} from '../../utils.js'
 import UserService from './UserService.js'
 
 class UserController {
 	async create(req, res) {
 		try {
-			const ip = req.headers['x-forwarded-for'] || req.ip || null
-			console.log(ip, req.headers)
-			const user = await UserService.create(req.body)
+			const ip = parseIp(req)
+			const user = await UserService.create({...req.body, ip})
 			res.json(user)
 		} catch (e) {
 			res.status(500).json(e)

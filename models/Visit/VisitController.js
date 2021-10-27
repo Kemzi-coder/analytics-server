@@ -1,9 +1,11 @@
+import {parseIp} from '../../utils.js'
 import VisitService from './VisitService.js'
 
 class VisitController {
 	async create(req, res) {
 		try {
-			const visit = await VisitService.create(req.body)
+			const ip = parseIp(req)
+			const visit = await VisitService.create({...req.body, ip})
 			res.json(visit)
 		} catch (e) {
 			res.status(500).json(e)

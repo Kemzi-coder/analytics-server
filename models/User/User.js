@@ -9,6 +9,9 @@ const userSchema = new Schema(
 			unique: true,
 			required: true
 		},
+		ip: {
+			type: Number
+		},
 		user_agent: {
 			type: String
 		},
