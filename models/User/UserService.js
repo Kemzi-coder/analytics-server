@@ -14,37 +14,37 @@ class UserService {
 		return createdUser
 	}
 
-	async getAll() {
-		const users = await User.find()
-		return users
-	}
+	// async getAll() {
+	// 	const users = await User.find()
+	// 	return users
+	// }
 
-	async getOne(id) {
-		if (!id) {
-			throw new Error('Id is undefined')
-		}
+	// async getOne(id) {
+	// 	if (!id) {
+	// 		throw new Error('Id is undefined')
+	// 	}
 
-		const user = await User.findById(id)
-		return user
-	}
+	// 	const user = await User.findById(id)
+	// 	return user
+	// }
 
-	async update(user) {
-		if (!user._id) {
-			throw new Error('Id is undefined')
-		}
+	// async update(user) {
+	// 	if (!user._id) {
+	// 		throw new Error('Id is undefined')
+	// 	}
 
-		const updatedUser = await User.findByIdAndUpdate(user._id, user)
-		return updatedUser
-	}
+	// 	const updatedUser = await User.findByIdAndUpdate(user._id, user)
+	// 	return updatedUser
+	// }
 
-	async delete(id) {
-		if (!id) {
-			throw new Error('Id is undefined')
-		}
+	// async delete(id) {
+	// 	if (!id) {
+	// 		throw new Error('Id is undefined')
+	// 	}
 
-		const user = await User.findByIdAndDelete(id)
-		return user
-	}
+	// 	const user = await User.findByIdAndDelete(id)
+	// 	return user
+	// }
 }
 
 export default new UserService()
